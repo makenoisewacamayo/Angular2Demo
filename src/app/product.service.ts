@@ -16,7 +16,7 @@ export class ProductService {
     headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     headers.append('Content-Type', 'application/json; charset=UTF-8');
 
-    return this.http.get(`api/product/all`,  {headers: headers})
+    return this.http.get('/api/product/all',  {headers: headers})
       .map(response => response.json());
   }
 
