@@ -1,0 +1,57 @@
+{
+  "consumer": {
+    "name": "product-service-ui"
+  },
+  "provider": {
+    "name": "product-service-api"
+  },
+  "interactions": [
+    {
+      "description": "A request for all products",
+      "providerState": "Get products",
+      "request": {
+        "method": "GET",
+        "path": "/api/product/all"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": [
+          {
+            "$type": "MyServices.Product, MyServices",
+            "Name": "Coke Light",
+            "Price": 10.95,
+            "Id": "3c9815eb-b649-4b22-877a-c27b153a0bd6"
+          }
+        ],
+        "matchingRules": {
+          "$.body": {
+            "min": 1
+          },
+          "$.body[*].*": {
+            "match": "type"
+          },
+          "$.body[*].$type": {
+            "match": "type"
+          },
+          "$.body[*].Name": {
+            "match": "type"
+          },
+          "$.body[*].Price": {
+            "match": "type"
+          },
+          "$.body[*].Id": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

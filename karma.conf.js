@@ -19,7 +19,7 @@ module.exports = function (config) {
       port: 1234,
       dir: 'pacts/'}],
     proxies: {
-      '/api/product/all' : 'http://localhost:1234//api/product/all'
+      '/api/product/all' : 'http://localhost:1234/api/product/all'
     },
     client:{
       clearContext: false // leave Jasmine Spec Runner output visible in browser
